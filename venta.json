@@ -1,0 +1,23 @@
+[
+    {
+        "idEmpleadoFk": 1,
+        "datosCliente": {
+            "cedula": "1111111",
+            "nombre": "",
+            "telefono": "",
+            "email": ""
+        },
+        "listaCompra":[
+            {
+                "idMedicamentoFk": 1,
+                "idLoteFk": 2,
+                "cantidad": 12
+            },
+            {
+                "idMedicamentoFk": 1,
+                "idLoteFk": 2,
+                "cantidad": 12
+            }
+        ]
+    }
+]
