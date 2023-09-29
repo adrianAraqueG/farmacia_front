@@ -16,7 +16,6 @@ const inputBuscar = document.querySelector('#buscarMedicamento');
 inputBuscar.addEventListener('keyup', buscarMedicamentos);
 
 
-
 /**
  * FUNCTIONS
  */
