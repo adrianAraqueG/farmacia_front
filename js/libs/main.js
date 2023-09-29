@@ -10,7 +10,7 @@ console.log('Cambio 1');
  * API
  */
 class API{
-    static getMedicamento(){
+    static getMedicamentos(){
         return fetch(API_URL + '/api/farmacia/medicamento')
         .then(response => {
             return response.json();
