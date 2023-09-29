@@ -19,10 +19,6 @@ class API{
             console.error('Hubo un problema:', error.message);
         });
     };
-
-    static getProveedorepailas(){
-        //asdasd
-    }
 }
 
 
