@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -47,9 +47,126 @@
 
     <section class="container">
         <div class="container-fluid d-flex flex-row align-items-center justify-content-between">
-            <h1 class="mt-5 mb-4 me-auto">Proveedores | Comprar Medicamentos</h1>
+            <h1 class="mt-5 mb-4 me-auto">Comprar Medicamentos</h1>
+            <button type="button" class="btn btn-success bg-gradient px-3 me-3" data-mdb-toggle="modal"
+                data-mdb-target="#modalCarritoProveedor"><i class="fa-solid fa-cart-shopping"></i> Ver Carrito</button>
+            <button type="button" class="btn btn-danger px-3">Vaciar</button>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input id="buscarMedicamento" type="text" class="form-control" placeholder="Buscar medicamento..."
+                aria-label="Username" aria-describedby="basic-addon1" />
+        </div>
+
+        <!-- LISTAR MEDICAMENTOS -->
+        <div class="table-responsive rounded-3">
+            <table class="text-center table table-secondary table-striped align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Medicamento</th>
+                        <th>Proveedor</th>
+                        <th>Cantidad</th>
+                        <th>Precio C/U</th>
+                        <th style="min-width: 155px !important;" class="text-center">Agregar</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-medicamentos">
+                    <tr>
+                        <td>Acetaminofen</td>
+                        <td><select name="" id="proveedor" class="form-select">
+                            <option value="" selected disabled>Elegir Proveedor</option>
+                            <option value="">Santa Ana</option>
+                            <option value="">MediFarm</option>
+                        </select></td>
+                        <td><input type="number" class="form-control"></td>
+                        <td>$50.000</td>
+                        <td><button type="button" class="btn btn-success px-3">Agregar</button></td>
+                    </tr>
+                    <tr>
+                        <td>Clonazepam</td>
+                        <td><select name="" id="proveedor" class="form-select">
+                            <option value="" selected disabled>Elegir Proveedor</option>
+                            <option value="">MediFarm</option>
+                            <option value="">FarmaTodo</option>
+                        </select></td>
+                        <td><input type="number" class="form-control"></td>
+                        <td>$45.000</td>
+                        <td><button type="button" class="btn btn-success px-3">Agregar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SPINNER -->
+            <div id="meds-spinner" class="container d-flex justify-content-center">
+                <div class="lds-ellipsis">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <!-- MODAL CARRITO PROVEEDOR -->
+    <div class="modal modal-lg fade" id="modalCarritoProveedor" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrito de Compra Medicamentos</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="table-responsive rounded-3">
+                        <!-- LISTA DE COMPRA -->
+                        <table class="text-center table table-secondary table-striped align-middle mb-0 bg-white">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Medicamento</th>
+                                    <th>Proveedor</th>
+                                    <th>Precio C/U</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista-carrito">
+                                <tr>
+                                    <td>Acetaminofen</td>
+                                    <td>FarmaTodo</td>
+                                    <td>$50.000</td>
+                                    <td>50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- AVISO VACIO -->
+                    <div id="carrito-vacio" class="container d-flex justify-content-center">
+                        <h4 class="text-secondary mt-3">El carrito está vacío...</h4>
+                    </div>
+
+                    <hr>
+                    <div >
+                        <h3 class="text-center">Datos Factura</h3>
+                        <h5>Cantidad de Compra: <span style="color: rgb(109, 109, 109);">50</span></h5>
+                        <h5>Subtotal: <span style="color: rgb(109, 109, 109);">2.500.000</span></h5>
+                        <h5>Total: <span style="color: rgb(109, 109, 109);">2.500.000</span></h5>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-block">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" type="button">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
 
     <!-- JS -->
