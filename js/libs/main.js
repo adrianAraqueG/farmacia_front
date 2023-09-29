@@ -10,7 +10,7 @@ console.log('Cambio 1');
  * API
  */
 class API{
-    static getMedicamentos(){
+    static getMedicamento(){
         return fetch(API_URL + '/api/farmacia/medicamento')
         .then(response => {
             return response.json();
@@ -20,6 +20,7 @@ class API{
         });
     };
 }
+
 
 /**
  * IU
