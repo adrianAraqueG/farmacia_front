@@ -131,4 +131,8 @@ class UI{
         }
         
     }
+
+    static printProveedores(){
+        console.log('clientes');
+    }
 }
