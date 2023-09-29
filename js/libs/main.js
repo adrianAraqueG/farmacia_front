@@ -4,7 +4,7 @@
 const LS = window.localStorage;
 const API_URL = 'https://api.beautykatherin.com';
 
-
+console.log('Cambio 1');
 
 /**
  * API
