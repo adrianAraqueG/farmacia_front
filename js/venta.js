@@ -15,6 +15,9 @@ API.getMedicamentos()
 const inputBuscar = document.querySelector('#buscarMedicamento');
 inputBuscar.addEventListener('keyup', buscarMedicamentos);
 
+const btnVaciarCarrito = document.querySelector('#buscarMedicamento');
+inputBuscar.addEventListener('keyup', buscarMedicamentos);
+
 
 /**
  * FUNCTIONS
@@ -29,6 +32,10 @@ function buscarMedicamentos() {
         busqueda = medicamentos.filter(med => {return med.nombre.toLowerCase().includes(inputBuscar.value.toLowerCase());});
         UI.printTableMeds('lista-medicamentos', busqueda, 'allinfo');
     }
+
+}
+
+function vaciarCarrito(){
 
 }
 
