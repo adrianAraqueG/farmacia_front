@@ -27,12 +27,25 @@ class API{
  */
 
 class UI{
-    static printTableMeds(idTable, option) {
+    static printTableMeds(idTable, regs, option) {
         const table = document.querySelector(`#${idTable}`);
         table.innerHTML = '';
         
         if(option === 'allinfo'){
-            medicamentos.forEach(med => {
+            if(medicamentos.length > 0){
+                document.querySelector('#meds-spinner').innerHTML = '';
+            }else{
+                document.querySelector('#meds-spinner').innerHTML = `
+                    <div class="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                `;
+            }
+
+            regs.forEach(med => {
                 let cantCart = 0;
                 carrito.forEach(regCart => {
                     if(regCart.id === med.id){
@@ -76,6 +89,14 @@ class UI{
                     `;
             });
         }else if (option === 'cart'){
+            if(carrito.length > 0){
+                document.querySelector('#carrito-vacio').innerHTML = '';
+            }else{
+                document.querySelector('#carrito-vacio').innerHTML = `
+                <h4 class="text-secondary mt-3">El carrito está vacío...</h4>
+                `;
+            }
+
             medicamentos.forEach(med => {
                 carrito.forEach(regCart => {
                     if(regCart.id === med.id){
@@ -110,5 +131,6 @@ class UI{
                 });
             });
         }
+        
     }
 }

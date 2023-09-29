@@ -8,8 +8,8 @@ API.getMedicamentos()
     .then((meds)=>{
         loaded = true;
         medicamentos = meds;
-        UI.printTableMeds('lista-medicamentos', 'allinfo');
-        UI.printTableMeds('lista-carrito', 'cart');
+        UI.printTableMeds('lista-medicamentos', medicamentos, 'allinfo');
+        UI.printTableMeds('lista-carrito', medicamentos, 'cart');
     });
 
 const inputBuscar = document.querySelector('#buscarMedicamento');
@@ -41,15 +41,15 @@ function aggMed(id){
             carrito.push({id, cant: 1, idProveedor: 0});
             medicamentos = medicamentos.map(med => { if(med.id === id){ med.stock -= 1} return med});
 
-            UI.printTableMeds('lista-medicamentos', 'allinfo');
-            UI.printTableMeds('lista-carrito', 'cart');
+            UI.printTableMeds('lista-medicamentos', medicamentos,'allinfo');
+            UI.printTableMeds('lista-carrito', medicamentos, 'cart');
 
         }else{
             carrito = carrito.map(med => { if(med.id === id){med.cant += 1} return med})
             medicamentos = medicamentos.map(med => { if(med.id === id){ med.stock -= 1;} return med});
 
-            UI.printTableMeds('lista-medicamentos', 'allinfo');
-            UI.printTableMeds('lista-carrito', 'cart');
+            UI.printTableMeds('lista-medicamentos', medicamentos, 'allinfo');
+            UI.printTableMeds('lista-carrito', medicamentos, 'cart');
         }
     }else{
         console.log('No hay más stock');
@@ -64,15 +64,15 @@ function quitarMed(id){
             carrito = carrito.filter(reg => {if(reg.id !== regCart.id){ return reg}});
             medicamentos = medicamentos.map(med => { if(med.id === regCart.id){ med.stock += 1} return med});
 
-            UI.printTableMeds('lista-medicamentos', 'allinfo');
-            UI.printTableMeds('lista-carrito', 'cart');
+            UI.printTableMeds('lista-medicamentos', medicamentos,'allinfo');
+            UI.printTableMeds('lista-carrito', medicamentos,'cart');
 
         }else{
             carrito = carrito.map(med => { if(med.id === id){med.cant -= 1} return med})
             medicamentos = medicamentos.map(med => { if(med.id === regCart.id){ med.stock += 1} return med});
 
-            UI.printTableMeds('lista-medicamentos', 'allinfo');
-            UI.printTableMeds('lista-carrito', 'cart');
+            UI.printTableMeds('lista-medicamentos', medicamentos, 'allinfo');
+            UI.printTableMeds('lista-carrito', medicamentos, 'cart');
         }
         
     }else{
