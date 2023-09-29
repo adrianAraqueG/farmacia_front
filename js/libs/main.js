@@ -4,12 +4,11 @@
 const LS = window.localStorage;
 const API_URL = 'https://api.beautykatherin.com';
 
-
+console.log('Cambio 1');
 
 /**
  * API
  */
-
 class API{
     static getMedicamentos(){
         return fetch(API_URL + '/api/farmacia/medicamento')
@@ -25,7 +24,6 @@ class API{
 /**
  * IU
  */
-
 class UI{
     static printTableMeds(idTable, regs, option) {
         const table = document.querySelector(`#${idTable}`);
@@ -76,7 +74,7 @@ class UI{
                             <span class="badge badge-danger rounded-pill d-inline fs-6">${med.stock}</span>
                         </td>
         
-                        <td>
+                        <td class="add-buttons">
                             <button option="button" class="btn btn-secondary btn-floating fs-6 me-2" onclick="quitarMed(${med.id})">
                                 -
                             </button>
@@ -116,7 +114,7 @@ class UI{
                             <td>
                                 <p class="fw-normal mb-1">${med.dosisRecomendada}</p>
                             </td>
-                            <td>
+                            <td class="add-buttons">
                                 <button option="button" class="btn btn-secondary btn-floating fs-6 me-2" onclick="quitarMed(${med.id})">
                                     -
                                 </button>
