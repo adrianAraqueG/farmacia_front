@@ -7,7 +7,7 @@ let carrito = [];
 API.getMedicamentos()
     .then((meds)=>{
         loaded = true;
-        medicamentos = meds;
+        medicamentos = meds
         UI.printTableMeds('lista-medicamentos', medicamentos, 'allinfo');
         UI.printTableMeds('lista-carrito', medicamentos, 'cart');
     });
